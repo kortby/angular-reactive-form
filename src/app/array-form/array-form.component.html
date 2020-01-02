@@ -1,0 +1,34 @@
+<div class="basic-form-container">
+  <h1>Array form</h1>
+  <h3>{{ myForm.value | json }}</h3>
+  <form [formGroup]="myForm" class="basic-form">
+    <mat-form-field appearance="fill">
+      <input matInput formControlName="email" />
+    </mat-form-field>
+
+    <div>
+      <button mat-button color="primary" (click)="addPhone()">Add Phone</button>
+    </div>
+
+    <h4>Phone Number</h4>
+    <div class="cell" formArrayName="phones">
+      <div
+        *ngFor="let phone of phoneForms.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="area" maxlength="3" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="prefix" maxlength="3" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="line" maxlength="4" />
+        </mat-form-field>
+        <button mat-button color="accent" (click)="deletePhone(i)">
+          Delete Phone
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

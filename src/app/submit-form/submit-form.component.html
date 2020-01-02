@@ -1,0 +1,28 @@
+<div class="basic-form-container">
+  <h1>Submit form</h1>
+  <h3>{{ myForm.value | json }}</h3>
+
+  <form
+    [formGroup]="myForm"
+    [hidden]="success"
+    (ngSubmit)="submitHandler()"
+    class="basic-form"
+  >
+    <mat-form-field>
+      <input matInput formControlName="email" placeholder="Input" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+        matInput
+        formControlName="message"
+        placeholder="Textarea"
+      ></textarea>
+    </mat-form-field>
+
+    <button mat-button [disabled]="myForm.invalid">Submit Form</button>
+  </form>
+</div>
+<div *ngIf="success">
+  Yay! We received your submission
+</div>

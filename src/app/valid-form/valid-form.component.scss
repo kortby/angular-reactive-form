@@ -1,0 +1,8 @@
+.basic-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.basic-form > * {
+  width: 80%;
+}

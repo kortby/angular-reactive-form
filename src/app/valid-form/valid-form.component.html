@@ -1,0 +1,38 @@
+<div class="basic-form-container">
+  <h1>Valid form</h1>
+  <h3>{{ myForm.value | json }}</h3>
+  <form [formGroup]="myForm" class="basic-form">
+    <mat-form-field>
+      <input matInput formControlName="email" placeholder="Input" />
+      <mat-error *ngIf="email!.invalid && email!.touched">
+        Invalid Email
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Must have a number">
+      <input
+        matInput
+        formControlName="password"
+        placeholder="password"
+        type="password"
+      />
+      <mat-hint align="end">
+        <mat-hint align="end">{{ password!.value?.length || 0 }}/10</mat-hint>
+      </mat-hint>
+      <mat-error *ngIf="password!.invalid && password!.touched">
+        Invalid Password
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="age" placeholder="Input" />
+      <mat-error *ngIf="age!.errors?.min && age!.touched">
+        {{ age!.errors?.min.actual }} is too young.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="agree">Agree</mat-checkbox>
+
+    <button mat-raised-button [disabled]="myForm.invalid">Submit</button>
+  </form>
+</div>

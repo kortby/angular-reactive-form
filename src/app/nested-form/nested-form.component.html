@@ -1,0 +1,34 @@
+<div class="basic-form-container">
+  <h1>Nested form</h1>
+  <h3>{{ myForm.value | json }}</h3>
+  <form [formGroup]="myForm" class="basic-form">
+    <mat-form-field appearance="fill">
+      <input matInput formControlName="email" />
+    </mat-form-field>
+
+    <h4>Cell phone</h4>
+    <div class="cell" formGroupName="cellPhone">
+      <mat-form-field appearance="fill">
+        <input matInput formControlName="area" maxlength="3" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input matInput formControlName="prefix" maxlength="3" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input matInput formControlName="line" maxlength="4" />
+      </mat-form-field>
+    </div>
+    <h4>Home phone</h4>
+    <div class="home" formGroupName="homePhone">
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="area" maxlength="3" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="prefix" maxlength="3" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="line" maxlength="4" />
+      </mat-form-field>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+.basic-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.basic-form > * {
+  width: 50%;
+}
+
+.cell {
+  .mat-form-field {
+    width: 100px;
+    margin-right: 10px;
+  }
+}
+
+.home {
+  .mat-form-field {
+    width: 100px;
+    margin-right: 10px;
+  }
+}
